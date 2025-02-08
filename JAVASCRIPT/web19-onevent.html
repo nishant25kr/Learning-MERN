@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="txt"></h1>
+
+    <button onclick="demo1()">JAVA</button>
+    <button onclick="demo2()">NODE</button>
+    <button onclick="demo3()">REACT</button>
+    <button onmouseover="demo4()">MOUSE OVER</button>
+    <button onmouseout="demo3()">REACT</button>
+
+    <script>
+        function demo1(){
+            document.getElementById("txt").innerHTML="JAVA SCRIPT"
+        }
+        function demo2(){
+            document.getElementById("txt").innerHTML="NODE"
+        }
+        function demo3(){
+            document.getElementById("txt").innerHTML="REACT"
+        }
+        function demo4(){
+            document.getElementById("txt").innerHTML="MOUSE over"
+        }
+    </script>
+
+</body>
+</html>

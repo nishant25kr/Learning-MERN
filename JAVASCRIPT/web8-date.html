@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>date</h1>
+    <script>
+        // document.write(Date())
+        const obj=new Date()
+        let month=obj.getMonth()+1
+        let year=obj.getFullYear()
+        let date=obj.getDate()
+        let h=obj.getHours()
+        let m=obj.getMinutes()
+        let s=obj.getSeconds()
+        document.write( date+"/"+month+"/"+year )
+        document.write("<br>")
+        document.write(h+":"+m+":"+s)
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // let person={
+        //     name:'peter',
+        //     age:22,
+        //     place:'london',
+        //     email:'peter@gmail.com'
+        // }
+        // console.log(person);
+        // console.log(person.name);
+        // let person={}
+        // person.name="Nishant"
+        // person.age=20
+        // person.place="India"
+        // person.age=person.age+30
+        // // delete person.place
+        // console.log(person);
+        
+        // const person=new Object()
+        // person.name="peter"
+        // person.age=33
+        // person.place="Hyderabad"
+        // confirm.log(person.name)
+        const person1={
+            name:"peter",
+            age:22,
+            place:"London"
+        }
+        const person2={
+            email:"peter@gmail.com",
+            profession:"lawyer"
+        }
+        const result={...person1, ...person2}
+        console.log(result);
+    </script>
+</body>
+</html>

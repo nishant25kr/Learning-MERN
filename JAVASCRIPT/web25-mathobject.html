@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <input type="text" name="pw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z].{8,})">
+
+        <input type="text" name="countrycode" pattern="[0-9]{3}"
+        title="Three letter country code">
+        <br>
+        <input type="text" name="uid" pattern="[a-z]{3,5}"
+        title="min 3 and max 5 lowercase latter only">
+        <br>
+        <input type="submit">
+    </form>
+    <script>
+        // document.write(Math.round(Math.random()*10))
+        var str="hello java"
+        var pat=/a/g
+        var result=str.match(pat)
+        document.write(result)
+        
+        
+    </script>
+</body>
+</html>

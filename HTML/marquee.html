@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3><marquee behavior="" direction="right">Anouncement</marquee></h3>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="card">
+                <img src="images/pic1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card 1</h5>
+                    <p class="card-text">Some quick example text for Card 1.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/pic2.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card 2</h5>
+                    <p class="card-text">Some quick example text for Card 2.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/pic3.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Card 3</h5>
+                    <p class="card-text">Some quick example text for Card 3.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        .slider-container {
+            overflow: hidden;
+            width: 100%;
+            background: #f8f9fa;
+            padding: 10px 0;
+        }
+    
+        .slider {
+            display: flex;
+            gap: 20px;
+            animation: slide-right 10s linear infinite;
+        }
+    
+        .card {
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+    
+        @keyframes slide-right {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(100%);
+            }
+        }
+    </style>
+    
+</body>
+</html>

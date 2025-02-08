@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            margin: auto;
+            border-collapse: collapse;
+            background-color: aqua;
+            width:'300px';
+            align-items:'center';
+            margin-top: 300px;
+            border-radius: 10px;
+            box-shadow: 10px 10px 15px black;
+            
+        }
+        td{
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <table  border="2px">
+        <tr>
+            <td >Date</td>
+            <td>Doller</td>
+            <td>Rupees</td>
+        </tr>
+        <tr>
+            <td id="date"></td>
+            <td id="doller"></td>
+            <td id="rupee"></td>
+        </tr>
+    </table>
+    <script>
+
+        const obj=new Date()
+        let date=obj.toLocaleDateString();
+        // let doller=prompt("Enter the amount");
+        let doller=2;
+        let rupee=Number(doller)*86.5;
+        document.getElementById('date').innerHTML=date;
+        document.getElementById('doller').innerHTML=doller;
+        document.getElementById('rupee').innerHTML=rupee;
+
+    </script>
+</body>
+</html>

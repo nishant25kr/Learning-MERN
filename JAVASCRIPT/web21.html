@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Javascript</h1>
+    <input type="text" name="f_name" onfocus="focus" id="f_name" > 
+    <span id="error"></span> <br>
+    <button onclick="demo()"> submit</button>
+
+    <script>
+        function demo(){
+            let x=document.getElementById("f_name").value
+            if(x==""){
+                // document.getElementById("error").innerHTML="fill the form"
+                document.getElementById("f_name").style.background='yellow'
+            }
+            else{
+                alert("hello "+x);
+            }
+        }
+        function focus(){
+            document.getElementById("f_name").style.background='yellow'
+        }
+    </script>
+
+<!-- <h1 id="txt">Javascript</h1>
+<br>
+<button onclick="demo('red')">RED</button>
+<button onclick="demo('yellow')">YELLOW</button>
+<button onclick="demo('green')">GREEN</button>
+
+<script>
+    function demo(uid){
+        document.getElementById("txt").style.color=uid
+        
+    }
+</script> -->
+</body>
+</html>

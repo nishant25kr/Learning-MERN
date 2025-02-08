@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="txt" ></h1>
+
+    <script>
+        let sym=prompt("Enter *,+,/,- :")
+        let num1=prompt("Enter num1 ;")
+        let num2=prompt("Enter num2 ;")
+
+        if(sym=="*"){
+            document.getElementById("txt").innerHTML=num1*num2;
+        }
+        else if(sym=="+"){
+            document.getElementById("txt").innerHTML=Number(num1)+Number(num2);
+        }
+        else if(sym=="/"){
+            document.getElementById("txt").innerHTML=num1/num2;
+        }
+        else if(sym=="-"){
+            document.getElementById("txt").innerHTML=num1-num2;
+        }
+        else{
+            alert("Invalid Input")
+        }
+
+    </script>
+</body>
+</html>

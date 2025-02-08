@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <meter  max="10" min="0" value="1" id="mtr"></meter>
+    <button id="btn" >UP</button>
+    <input type="text" id="txt" onkeydown="demo()" onkeyup="demo1()">
+
+    <script>
+        // function demo(){
+        //     meter=(meter.value+1);
+        //     // document.getElementById('mtr').value=x;
+        // }
+        function demo(){
+            document.getElementById('txt').style.background='yellow'
+        }
+        function demo1(){
+            document.getElementById('txt').style.background='red'
+        }
+
+
+    </script>
+</body>
+</html>

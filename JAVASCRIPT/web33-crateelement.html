@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="demo()">click me</button>
+    <button id="btn">click me</button>
+    <button id="btn-y">Yellow</button>
+    <script>
+        function demo(){
+
+            const ele=document.createElement("p")
+            ele.innerText="welcome to LPU"
+            // console.log(ele)
+            document.body.appendChild(ele)
+        }
+        btn.addEventListener("click",function(){
+            const ele=document.createElement("p")
+            ele.innerText="Hello LPU"
+           
+            document.body.appendChild(ele)
+        })
+        btn-y.addEventListener('click',function(){
+            document.getElementsByClassName('ele').style.color='yellow'
+        })
+        localStorage.setItem("name","nisahnt")
+        localStorage.setItem("place","punjab")
+        localStorage.setItem("class","10")
+
+    </script>
+</body>
+</html>
