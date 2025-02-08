@@ -13,11 +13,14 @@ app.post('/', (req, res) => {
     let uid = req.body.uid;
     let pass = req.body.pass;
     // let sum = Number(num1) +Number(num2);
-    if(uid || pass){
-        res.send("User id is"+uid+"Password is"+pass);
+    if(uid=="Nishant"){
+        res.send("username is correct")
+    }
+    if(pass=="1234565789"){
+        res.send("password is correct")
     }
     else{
-        res.send("Invalid userid or password")
+        res.send("Enter correct username and password")
     }
 });
 app.listen(3000, () => console.log("Server started..."));
