@@ -8,7 +8,8 @@ app.use('/',(req,res)=>{
         email:"nishant@gmail.com",
         name:'Nishant',
         place:"Delhi",
-        age:10
+        age:10,
+        
     }
     res.render('demo4',{person})
 })
