@@ -1,0 +1,83 @@
+
+
+db.books.insertMany([
+  {
+    title: "The Great Gatsby",
+    author: "F. Scott Fitzgerald",
+    year: 1925,
+    genre: "Classic Fiction"
+  },
+  {
+    title: "To Kill a Mockingbird",
+    author: "Harper Lee",
+    year: 1960,
+    genre: "Fiction"
+  },
+  {
+    title: "1984",
+    author: "George Orwell",
+    year: 1949,
+    genre: "Dystopian"
+  },
+  {
+    title: "The Catcher in the Rye",
+    author: "J.D. Salinger",
+    year: 1951,
+    genre: "Fiction"
+  },
+  {
+    title: "Moby-Dick",
+    author: "Herman Melville",
+    year: 1851,
+    genre: "Adventure"
+  }
+]);
+
+// Verify the inserted documents
+db.books.find().pretty();
+
+db.createCollection("col_val",{
+    validator:{
+
+        $and: [
+            {
+                "name":{$type:"string",$exists:true}
+            },
+            {
+                "mobile":{$type:"string",$regex:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/}
+            },
+            {
+                "email":{$type: "string",$exist:true}
+            }
+        ]
+    }
+   })
+
+   db.runCommand({
+    collMod:'col_val',
+    validator:{
+        $and: [
+            {
+                "name":{$type:"string",$exists:true}
+            },
+            {
+                "mobile":{$type:"string",$regex:/^[0-9]{10}$/}
+            },
+            {
+                "email":{$type: "string",$exists:true}
+            }
+        ]
+    }
+   })
+
+db.Product.insertMany([
+    {cust_id:5,qty:"2",amount:300},
+    {cust_id:6,qty:"2",amount:400},
+    {cust_id:7,qty:"1",amount:500},
+    {cust_id:8,qty:"1",amount:100},
+])
+
+db.Product.aggregate([
+    {$match:{cust_id:5}},
+    {$group:{_id:$cust_id,total:{$max:'$amount'}}}
+])
