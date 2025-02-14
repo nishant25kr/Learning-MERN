@@ -9,18 +9,13 @@ const connectDB=async()=>{
     }
 }
 connectDB()
-
 const mySchema=mongoose.Schema({
     name:String,
     place:String,
     age:Number
 })
-
-
 const mymodel=mongoose.model('about',mySchema)
-
 // mymodel.deleteOne({name:"Virat Kohli" })
-
 // mymodel.updateOne({name:"Nishant Kumar"},{$set:{age:40}}) 
 mymodel.find({name:'Nishant Kumar'})
 .then((res)=>console.log(res))
