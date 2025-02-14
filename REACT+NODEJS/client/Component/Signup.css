@@ -1,0 +1,8 @@
+.form_div{
+    border: 2px solid black;
+    width: 30%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
