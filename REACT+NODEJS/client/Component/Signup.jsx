@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 
 export default function Signup() {
     return (
-
             <div class="form-container form_div">
                 <h2 class="text-center mb-3">Signup</h2> 
                 <form action="/signup" method="post">
@@ -24,8 +23,5 @@ export default function Signup() {
                 </form>
                 <Link to="/Login" >Login</Link>
             </div>
-
-
-
     )
 }
