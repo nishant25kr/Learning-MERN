@@ -1,27 +1,59 @@
-import React from 'react'
-import './Signup.css'
-import {Link} from 'react-router-dom'
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
+import './Signup.css';
 
 export default function Signup() {
+    // Corrected useState syntax
+    const [username, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    
+    const navigate = useNavigate(); // Fixed duplicate declaration
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios
+            .post("http://localhost:3000/register", { username, email, password })
+            .then((result) => {
+                console.log(result);
+                navigate('/login');
+            })
+            .catch((err) => console.log(err));
+    };
+
     return (
-            <div class="form-container form_div">
-                <h2 class="text-center mb-3">Signup</h2> 
-                <form action="/signup" method="post">
-                    <div class="mb-3">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name" required/>
-                    </div>
-                    <div class="mb-3">
-                        <label for="place" class="form-label">Email</label>
-                        <input type="text" class="form-control" name="place" id="place" placeholder="Enter your place" required/>
-                    </div>
-                    <div class="mb-3">
-                        <label for="age" class="form-label">Password</label>
-                        <input type="number" class="form-control" name="age" id="age" placeholder="Enter your age" required/>
-                    </div>
-                    <button type="submit" class="btn btn-primary w-100">Submit</button>
-                </form>
-                <Link to="/Login" >Login</Link>
-            </div>
-    )
+        <div className='border w-25 mx-auto mt-5 p-3'>
+            <form onSubmit={handleSubmit} className='m-2'>
+                <h2>Signup Page</h2>
+                <input 
+                    type="text" 
+                    name="username" 
+                    className="form-control m-1" 
+                    placeholder="Username" 
+                    onChange={(e) => setName(e.target.value)}
+                    required 
+                />
+                <input 
+                    type="email" 
+                    name="email" 
+                    className="form-control m-1" 
+                    placeholder="Email" 
+                    onChange={(e) => setEmail(e.target.value)}
+                    required 
+                />
+                <input 
+                    type="password" 
+                    name="password" 
+                    className="form-control m-1" 
+                    placeholder="Password" 
+                    onChange={(e) => setPassword(e.target.value)}
+                    required 
+                />
+                <button type="submit" className="btn m-1 btn-primary">Signup</button>
+                <Link to="/login" className="m-1 btn btn-secondary">Login</Link>
+            </form>
+        </div>
+    );
 }
