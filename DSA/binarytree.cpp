@@ -252,6 +252,22 @@ void maxWidth(Node *root)
     cout<< maxW;
 }
 
+//counting the nodes
+int countnodes(Node* root,vector<int> &res){
+    
+
+    if(root == NULL) return 0;
+    
+
+
+    countnodes(root->left,res);
+    res.push_back(root->data);
+    countnodes(root->right,res);
+
+    return res.size();
+
+}
+
 int main()
 {
     struct Node *root = new Node(1);
@@ -275,7 +291,11 @@ int main()
     // rightsideview(root);
     // Node* l=lowestcommonansister(root, root->left->left, root->left->right);
     // cout<<l->data;
-    maxWidth(root);
+    // maxWidth(root);
+    vector<int>res;
+    countnodes(root,res);
+    // cout<<res.size();
+
 
     return 0;
 }
