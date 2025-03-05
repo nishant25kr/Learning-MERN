@@ -255,11 +255,8 @@ void maxWidth(Node *root)
 //counting the nodes
 int countnodes(Node* root,vector<int> &res){
     
-
     if(root == NULL) return 0;
     
-
-
     countnodes(root->left,res);
     res.push_back(root->data);
     countnodes(root->right,res);

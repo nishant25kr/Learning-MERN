@@ -41,4 +41,30 @@ const user={
 function handleuser(users){
     console.log(`${users.name} hello how are you?`)
 }
-handleuser(user);
+// handleuser(user);
+
+//arror funtions
+const User = {
+    username:"Nishant kumar",
+    age:22,
+    place:"India",
+    WelcomeMessage:function(){
+        //console.log(`${this.username} , Welcome to this world`)
+        console.log(this)
+    }
+}
+
+User.WelcomeMessage();
+User.username="Ravi"
+User.WelcomeMessage()
+console.log(this)
+
+// function one(){
+//     console.log(this)
+// }
+
+const one=()=>{
+    console.log("arrow function")
+}
+
+one();
