@@ -136,6 +136,23 @@ bool two_sum(Node *root, int k)
     return 0;
 }
 
+//check bst
+
+bool check(Node* root,long minVal, long maxVal){
+    if(root == NULL) return 1;
+
+    if(root->data < minVal || root->data > maxVal) return 0;
+
+    return check(root->left,minVal,root->data) && check(root->right,root->data,maxVal);
+}
+
+bool check_bst(Node* root){
+    // if(root == NULL) return 0;
+
+    return check(root,INT_MIN,INT_MAX);
+
+}
+
 
 int main()
 {
@@ -148,6 +165,14 @@ int main()
     insert(root, 5);
     insert(root, 7);
 
+    // struct Node *root = new Node(1);
+    // root->left = new Node(2);
+    // root->right = new Node(3);
+    // root->left->left = new Node(4);
+    // root->left->right = new Node(5);
+    // root->right->left = new Node(6);
+    // root->right->right = new Node(7);
+
     // cout << "Inorder Traversal of BST: ";
     // inorder(root);
     // cout << endl;
@@ -156,7 +181,10 @@ int main()
     // deletenode(root,3);
     // inorder(root);
 
-    cout<<two_sum(root, 4);
+    // cout<<two_sum(root, 4);
+
+    cout<<check_bst(root);
+    
 
     return 0;
 }

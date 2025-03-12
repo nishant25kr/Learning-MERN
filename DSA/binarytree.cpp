@@ -43,7 +43,7 @@ void printleft(Node *root)
     printleft(root->left);
 }
 
-void pot_usingstack(Node *root)
+void lot_usingstack(Node *root)
 {
     if (root == NULL)
         return;
@@ -97,8 +97,10 @@ void addleaf(Node *root, vector<int> &res)
         res.push_back(root->data);
         return;
     }
+
     if (root->left)
         addleaf(root->left, res);
+        
     if (root->right)
         addleaf(root->right, res);
 }
