@@ -100,7 +100,7 @@ void addleaf(Node *root, vector<int> &res)
 
     if (root->left)
         addleaf(root->left, res);
-        
+
     if (root->right)
         addleaf(root->right, res);
 }
@@ -225,7 +225,8 @@ Node *lowestcommonansister(Node *root, Node *p, Node *q)
 // maximum width of tree
 void maxWidth(Node *root)
 {
-    if (root==NULL) return ;
+    if (root == NULL)
+        return;
 
     queue<pair<Node *, int> > q;
 
@@ -246,27 +247,29 @@ void maxWidth(Node *root)
             int idx = q.front().second;
             q.pop();
 
-            if(node->left)  q.push(make_pair(node->left, idx * 2 + 1));
+            if (node->left)
+                q.push(make_pair(node->left, idx * 2 + 1));
 
-            if(node->right) q.push(make_pair(node->right, idx * 2 + 2));
+            if (node->right)
+                q.push(make_pair(node->right, idx * 2 + 2));
         }
     }
-    cout<< maxW;
+    cout << maxW;
 }
 
-//counting the nodes
-int countnodes(Node* root,vector<int> &res){
-    
-    if(root == NULL) return 0;
-    
-    countnodes(root->left,res);
+// counting the nodes
+int countnodes(Node *root, vector<int> &res)
+{
+
+    if (root == NULL)
+        return 0;
+
+    countnodes(root->left, res);
     res.push_back(root->data);
-    countnodes(root->right,res);
+    countnodes(root->right, res);
 
     return res.size();
-
 }
-
 
 // // void flatter(Node* root){
 
@@ -274,29 +277,126 @@ int countnodes(Node* root,vector<int> &res){
 
 // void flatter_toLL(Node* root){
 //     Node* prev= NULL;
-
 //     if(root == NULL) return;
-    
 //     flatter_toLL(root->right);
 //     flatter_toLL(root->left);
-
 //     root->right = prev;
 //     root->left = NULL;
-
 //     prev=root;
-
 // }
+
+// total path to go to the node
+
+bool search(Node *root, vector<int> &res, int n)
+{
+
+    if (root == NULL)
+        return false;
+
+    res.push_back(root->data);
+
+    if (root->data == n)
+        return true;
+
+    if (search(root->left, res, n) || search(root->right, res, n))
+        return true;
+
+    res.pop_back();
+
+    return false;
+}
+
+void path_to_Node(Node *root, int n)
+{
+    vector<int> res;
+
+    // if(root == NULL) return res;
+
+    cout << search(root, res, n);
+
+    cout << endl;
+    cout << "Path is: ";
+    for (int i = 0; i < res.size(); i++)
+    {
+        cout << res[i] << " ";
+    }
+}
+
+// paths to go to the NULL
+void printPaths(vector<vector<int> > &allpaths)
+{
+    for (vector<int> &path : allpaths)
+    { // Explicit type instead of 'auto'
+        for (size_t i = 0; i < path.size(); i++)
+        { // Explicit loop instead of range-based for
+            cout << path[i] << " ";
+        }
+        cout << endl; // New line after each path
+    }
+}
+
+void path(Node *root, vector<int> &currentpath, vector<vector<int> > &allpath)
+{
+    if (root == NULL)
+        return;
+    currentpath.push_back(root->data);
+
+    if (root->left == NULL && root->right == NULL)
+    {
+        allpath.push_back(currentpath);
+    }
+    else
+    {
+        path(root->left, currentpath, allpath);
+        path(root->right, currentpath, allpath);
+    }
+    currentpath.pop_back();
+}
+
+void path_to_NULL(Node *root)
+{
+    vector<vector<int> > allpath;
+    vector<int> currentpath;
+
+    path(root, currentpath, allpath);
+    printPaths(allpath);
+}
+
+
+//
+
+bool check_sum(Node* root){
+    if(root!= nullptr && root->left != NULL && root->right != NULL){
+
+        if(root->data == root->left->data + root->right->data){
+            check_sum(root->left);
+            check_sum(root->right);
+        }else{
+            return false;
+        }
+
+    }
+    return true;
+}
+
+bool check_sum_of_clildisNODE(Node *root)
+{
+    if (root == NULL) return 0;
+    
+    return check_sum(root);
+}
 
 int main()
 {
-    struct Node *root = new Node(1);
-    root->left = new Node(2);
-    root->right = new Node(3);
-    root->left->left = new Node(4);
-    root->left->right = new Node(5);
-    root->right->left = new Node(6);
-    root->right->right = new Node(7);
+    struct Node *root = new Node(10);
+    root->left = new Node(5);
+    root->right = new Node(5);
+    root->left->left = new Node(2);
+    root->left->right = new Node(3);
+    root->right->left = new Node(1);
+    root->right->right = new Node(4);
 
+    int n = 5;
     // preorder(root);
     // inorder(root);
     // printleft(root);
@@ -311,12 +411,16 @@ int main()
     // Node* l=lowestcommonansister(root, root->left->left, root->left->right);
     // cout<<l->data;
     // maxWidth(root);
-    vector<int>res;
-    countnodes(root,res);
+
+    // countnodes(root,res);
 
     // flatter_toLL(root);
     // cout<<res.size();
+    // path_to_Node(root,n);
 
+    // path_to_NULL(root);
+
+   cout<<check_sum_of_clildisNODE(root);
 
     return 0;
 }
