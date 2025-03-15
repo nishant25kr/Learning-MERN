@@ -267,6 +267,26 @@ int countnodes(Node* root,vector<int> &res){
 
 }
 
+
+// // void flatter(Node* root){
+
+// // }
+
+// void flatter_toLL(Node* root){
+//     Node* prev= NULL;
+
+//     if(root == NULL) return;
+    
+//     flatter_toLL(root->right);
+//     flatter_toLL(root->left);
+
+//     root->right = prev;
+//     root->left = NULL;
+
+//     prev=root;
+
+// }
+
 int main()
 {
     struct Node *root = new Node(1);
@@ -293,6 +313,8 @@ int main()
     // maxWidth(root);
     vector<int>res;
     countnodes(root,res);
+
+    // flatter_toLL(root);
     // cout<<res.size();
 
 
