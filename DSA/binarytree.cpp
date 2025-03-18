@@ -323,17 +323,17 @@ void path_to_Node(Node *root, int n)
 }
 
 // paths to go to the NULL
-void printPaths(vector<vector<int> > &allpaths)
-{
-    for (vector<int> &path : allpaths)
-    { // Explicit type instead of 'auto'
-        for (size_t i = 0; i < path.size(); i++)
-        { // Explicit loop instead of range-based for
-            cout << path[i] << " ";
-        }
-        cout << endl; // New line after each path
-    }
-}
+// void printPaths(vector<vector<int> > &allpaths)
+// {
+//     for (vector<int> &path : allpaths)
+//     { // Explicit type instead of 'auto'
+//         for (size_t i = 0; i < path.size(); i++)
+//         { // Explicit loop instead of range-based for
+//             cout << path[i] << " ";
+//         }
+//         cout << endl; // New line after each path
+//     }
+// }
 
 void path(Node *root, vector<int> &currentpath, vector<vector<int> > &allpath)
 {
@@ -359,7 +359,7 @@ void path_to_NULL(Node *root)
     vector<int> currentpath;
 
     path(root, currentpath, allpath);
-    printPaths(allpath);
+    // printPaths(allpath);
 }
 
 
@@ -386,15 +386,43 @@ bool check_sum_of_clildisNODE(Node *root)
     return check_sum(root);
 }
 
+//top view           
+
+void rightview(Node* root,vector<int> &res){
+    if(root== NULL) return ;
+    res.push_back(root->data);
+    rightview(root->right, res);
+}
+
+void leftview(Node* root,vector<int> &res){
+    if(root==NULL) return;
+    res.push_back(root->data);
+    leftview(root->left, res);
+}
+
+void topview(Node *root){
+    vector<int >res;
+    leftview(root,res);
+    reverse(res.begin(),res.end());
+    rightview(root->right,res);
+
+    for (int i = 0; i < res.size(); i++)
+    {
+        cout<<res[i]<< " ";
+    }
+    
+
+}
+
 int main()
 {
-    struct Node *root = new Node(10);
-    root->left = new Node(5);
-    root->right = new Node(5);
-    root->left->left = new Node(2);
-    root->left->right = new Node(3);
-    root->right->left = new Node(1);
-    root->right->right = new Node(4);
+    struct Node *root = new Node(1);
+    root->left = new Node(2);
+    root->right = new Node(3);
+    root->left->left = new Node(4);
+    root->left->right = new Node(5);
+    root->right->left = new Node(6);
+    root->right->right = new Node(7);
 
     int n = 5;
     // preorder(root);
@@ -420,7 +448,8 @@ int main()
 
     // path_to_NULL(root);
 
-   cout<<check_sum_of_clildisNODE(root);
+//    cout<<check_sum_of_clildisNODE(root);
+    topview(root);
 
     return 0;
 }
