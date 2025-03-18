@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chai aur code</title >
+</head>
+<body style="background-color: black; color: wheat;">
+
+
+    <div class="parent">
+        <li>Javascritp</li>
+    </div>
+
+    <script>
+        function addlang(langName){
+            const li = document.createElement('li');
+            li.innerHTML = `${langName}`
+            document.querySelector('.parent').appendChild(li)
+
+        }
+        addlang("python")
+        addlang("Hindi")
+        addlang("English")
+
+        function addlando(landName){
+            const li=document.createElement('li');
+            li.appendChild(document.createTextNode(landName));
+            document.querySelector('.parent').appendChild(li);
+        }
+
+        addlando("java")
+        addlando("hindi")
+
+        //edit the existing element
+        const secondlang = document.querySelector("li:nth-child(2)")
+        secondlang.innerHTML = "Nishant"
+        console.log(secondlang);
+        // const newli=document.createElement('li')
+        // newli.textContent = "Nis"
+        // secondlang.replaceChild(secondlang)
+
+        //deleting the element
+        const remove= document.querySelector('li:last-child')
+        remove.remove()
+
+
+    </script>
+
+
+    
+</body>
+</html>
