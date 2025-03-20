@@ -70,28 +70,64 @@ void  reverse_array(vector<int > &arr, int l, int r){
      
 }
 
+bool palendrom(int n ,string &st){
+    if(n >= st.size()/2) return true;
+
+    if(st[n] != st[st.size()-n-1]) return false;
+
+    return palendrom(n+1, st);
+}  
+
+
+void printF(int i, vector<int> &ds, int arr[], int n) {
+    if (i == n) {
+        for (int j = 0; j < ds.size(); j++) {
+            cout << ds[j] << " ";
+        }
+        cout << endl;  // Ensure subsequences are printed on separate lines
+        return;        // Return to avoid further execution
+    }
+
+    // Take the current element
+    ds.push_back(arr[i]);
+    printF(i + 1, ds, arr, n);
+    ds.pop_back();
+
+    // Skip the current element
+    printF(i + 1, ds, arr, n);
+}
+
+
 int main(){
-    f();
-    printname();
-    cout<<endl;
-    p(1,5);
-    cout<<endl;
+    // f();
+    // printname();
+    // cout<<endl;
+    // p(1,5);
+    // cout<<endl
     
-    backtracking(1,4);
-    cout<<endl;
-    int s=0;
-    sum(3,s);
-    cout<<endl;
-    cout<<sum_recursion(5);
-    cout<<endl;
-    cout<<fact_recursion(5);
-    cout<<endl;
-    vector<int > arr;
-    arr[0] = 1;
-    arr[1] = 2;
-    arr[2] = 3;
-    reverse_array(arr, 0, arr.size()-1);
-    cout<<arr[1];
+    // backtracking(1,4);
+    // cout<<endl;
+    // int s=0;
+    // sum(3,s);
+    // cout<<endl;
+    // cout<<sum_recursion(5);
+    // cout<<endl;
+    // cout<<fact_recursion(5);
+    // cout<<endl;
+    // vector<int > arr;
+    // arr[0] = 1;
+    // arr[1] = 2;
+    // arr[2] = 3;
+    // reverse_array(arr, 0, arr.size()-1);
+    // cout<<endl;
+
+    // string st = "MADaM";
+    // cout<<palendrom(0,st);
+
+    int arr[] = {3,2,1};
+    int n=3;
+    vector<int > ds;
+    printF(0, ds, arr, n);
 
     return 0;
 }
