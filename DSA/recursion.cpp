@@ -98,6 +98,32 @@ void printF(int i, vector<int> &ds, int arr[], int n) {
 }
 
 
+
+void printF_sum_K(int i ,vector<int> &ds, int s, int sum, int arr[], int n){
+    if(i == n){
+        if(s == sum){
+
+            for (int j = 0; j < ds.size(); j++) {
+                cout << ds[j] << " ";
+            }
+            cout << endl;  
+            
+        }
+        return; 
+    }
+    ds.push_back(arr[i]);
+    s += arr[i];
+    printF_sum_K(i+1, ds, s, sum, arr, n);
+
+    s-=arr[i];
+    ds.pop_back();
+
+    printF_sum_K(i+1, ds, s, sum, arr, n);
+}
+
+
+
+
 int main(){
     // f();
     // printname();
@@ -127,7 +153,10 @@ int main(){
     int arr[] = {3,2,1};
     int n=3;
     vector<int > ds;
-    printF(0, ds, arr, n);
+    // printF(0, ds, arr, n);
+
+    printF_sum_K(0, ds, 0, 3, arr, n);
+
 
     return 0;
 }
