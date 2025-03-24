@@ -88,37 +88,72 @@ void printF(int i, vector<int> &ds, int arr[], int n) {
         return;        // Return to avoid further execution
     }
 
-    // Take the current element
     ds.push_back(arr[i]);
     printF(i + 1, ds, arr, n);
     ds.pop_back();
 
-    // Skip the current element
     printF(i + 1, ds, arr, n);
 }
 
 
 
-void printF_sum_K(int i ,vector<int> &ds, int s, int sum, int arr[], int n){
+bool printF_sum_K(int i ,vector<int> &ds, int s, int sum, int arr[], int n){
     if(i == n){
         if(s == sum){
-
             for (int j = 0; j < ds.size(); j++) {
                 cout << ds[j] << " ";
             }
             cout << endl;  
-            
+            return true;
         }
-        return; 
+        else return false; 
     }
     ds.push_back(arr[i]);
     s += arr[i];
-    printF_sum_K(i+1, ds, s, sum, arr, n);
+    if(printF_sum_K(i+1, ds, s, sum, arr, n) == true){
+        return true;
+    }
 
     s-=arr[i];
     ds.pop_back();
 
-    printF_sum_K(i+1, ds, s, sum, arr, n);
+    if(printF_sum_K(i+1, ds, s, sum, arr, n) == true) return true;
+
+    else return false;
+}
+
+//print the combination of the sum
+
+void find_sum(int i, vector<int>& arr, int target, vector<int> ds,vector<vector<int> > &ans){
+    if(target == 0){
+        ans.push_back(ds);
+        return;
+    }
+    if(i == arr.size() || target<0) return;
+
+    ds.push_back(arr[i]);
+    find_sum(i+1, arr, target-arr[i], ds,ans);
+    ds.pop_back();
+
+    find_sum(i + 1, arr,target-arr[i], ds, ans);
+
+}
+
+
+void combination_sum(vector<int>& arr, int target){
+    vector<vector<int> >ans;
+    vector<int> ds;
+
+    find_sum(0, arr, target, ds,ans);
+
+    for(int i = 0; i < ans.size(); i++) {
+        cout << "[";
+        for(int j = 0; j < ans[i].size(); j++) {
+            cout << ans[i][j];
+            if(j < ans[i].size() - 1) cout << ", ";
+        }
+        cout << "]" << endl;
+    }
 }
 
 
@@ -150,12 +185,24 @@ int main(){
     // string st = "MADaM";
     // cout<<palendrom(0,st);
 
-    int arr[] = {3,2,1};
-    int n=3;
-    vector<int > ds;
+    // int arr[] = {3,2,1};
+    // int n=3;
+    // vector<int > ds;
     // printF(0, ds, arr, n);
 
-    printF_sum_K(0, ds, 0, 3, arr, n);
+    // printF_sum_K(0, ds, 0, 3, arr, n);
+
+    vector<int>arr;
+    arr.push_back(1);
+    arr.push_back(2);
+    arr.push_back(3);
+    arr.push_back(4);
+    arr.push_back(5);
+    arr.push_back(6);
+    
+    int target = 6;
+
+    combination_sum(arr,target);
 
 
     return 0;
