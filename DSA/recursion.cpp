@@ -84,8 +84,8 @@ void printF(int i, vector<int> &ds, int arr[], int n) {
         for (int j = 0; j < ds.size(); j++) {
             cout << ds[j] << " ";
         }
-        cout << endl;  // Ensure subsequences are printed on separate lines
-        return;        // Return to avoid further execution
+        cout << endl;  
+        return;        
     }
 
     ds.push_back(arr[i]);

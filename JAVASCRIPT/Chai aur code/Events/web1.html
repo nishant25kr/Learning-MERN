@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML events</title>
+    <style>
+        img{
+            width: 150px;
+        }
+    </style>
+</head>
+<body style="background-color: #212121; color: white;">
+    <h1>HTML events</h1>
+    <ul id="ul">
+        <li> <img id="a1" src="../images/a1.jpg" alt=""> </li>
+        <li> <img id="a2" src="../images/a2.jpg" alt=""> </li>
+        <li> <img id="a3" src="../images/a3.jpg" alt=""> </li>
+        <li> <img id="a4" src="../images/a4.jpg" alt=""> </li>
+        <li> <img id="a5" src="../images/a5.jpg" alt=""> </li>
+        
+    </ul>
+
+    <script>
+        // document.getElementById('a1').onclick = function(){
+        //     alert("image a1");
+        // }
+
+        // better aproach
+        // document.getElementById('a1').addEventListener('click',function(){
+        //     alert("hello a1");
+        // })
+
+        // document.getElementById('a1').addEventListener('click',function(e){
+        //     console.log(e);
+        //     // console.log(e.y); //position of click
+        // })
+
+        //by writing true parent will do first in false child will
+
+        // document.getElementById('ul').addEventListener('click',function(e){
+        //     console.log("clicked in ul");
+        // },false)
+
+        // document.getElementById('a1').addEventListener('click',function(e){
+        //     console.log("clicked in a1");
+        //     e.stopPropagation();
+        // },false)
+
+
+        // document.querySelector('#a1').addEventListener('click',function(e){
+        //     console.log(e.target.parentNode);
+        //     let removeit=e.target.parentNode;
+        //     removeit.remove();
+        // },false)
+
+        document.querySelector('#ul').addEventListener('click',function(e){
+            console.log(e.target.tagName);
+            if(e.target.tagName === 'IMG'){
+                let removeit=e.target.parentNode;
+                removeit.remove();
+            }
+            
+        },false)
+
+
+    </script>
+    
+</body>
+</html>
