@@ -125,6 +125,7 @@ bool printF_sum_K(int i ,vector<int> &ds, int s, int sum, int arr[], int n){
 //print the combination of the sum
 
 void find_sum(int i, vector<int>& arr, int target, vector<int> ds,vector<vector<int> > &ans){
+    
     if(target == 0){
         ans.push_back(ds);
         return;
@@ -134,7 +135,6 @@ void find_sum(int i, vector<int>& arr, int target, vector<int> ds,vector<vector<
     ds.push_back(arr[i]);
     find_sum(i+1, arr, target-arr[i], ds,ans);
     ds.pop_back();
-
     find_sum(i + 1, arr,target-arr[i], ds, ans);
 
 }
@@ -155,10 +155,6 @@ void combination_sum(vector<int>& arr, int target){
         cout << "]" << endl;
     }
 }
-
-
-
-
 int main(){
     // f();
     // printname();
@@ -199,11 +195,7 @@ int main(){
     arr.push_back(4);
     arr.push_back(5);
     arr.push_back(6);
-    
     int target = 6;
-
     combination_sum(arr,target);
-
-
     return 0;
 }
