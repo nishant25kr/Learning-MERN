@@ -226,6 +226,13 @@ int main()
     arr.push_back(5);
     arr.push_back(6);
     int target = 6;
-    combination_sum(arr, target);
+    // combination_sum(arr, target);
+    int i=0;
+    while (i<10)
+    {
+        cout<<i;
+        i+=2;
+    }
+    
     return 0;
 }
