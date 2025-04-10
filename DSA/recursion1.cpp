@@ -34,9 +34,5 @@ int main(){
     vector<int >dp(i,-1);
     cout<<f(nums,i-1,dp);
 
-
-
-
-
     return 0;
 }
