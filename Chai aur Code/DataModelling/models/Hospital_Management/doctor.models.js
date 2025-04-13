@@ -23,8 +23,6 @@ const doctorSchema = mongoose.Schema({
             type:mongoose.Schema.Types.ObjectId,
             ref:"Hospitals"
         }],
-      
-
     }
 },{timespans:true})
 
