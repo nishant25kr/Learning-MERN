@@ -3,16 +3,6 @@
 #include <vector>
 using namespace std;
 
-// int f1(vector<int>&nums,int i,vector<int>&dp){
-//     if(i==0) return nums[i];
-//     if(i<0) return 0;
-//     if(dp[i]!=-1) return dp[1];
-//     int pick=nums[i]+f(nums,i-2,dp);
-//     int npick=0+f(nums,i-1,dp);
-
-//     return dp[i] = max(pick,npick);
-// }
-
 // robber in altername houses
 // robber in last house connected with first house
 int f(int i, vector<int> &nums, vector<int> &dp)
@@ -62,7 +52,6 @@ int uniquepath_with_obstacle(int i, int j, vector<vector<int>> obstacleGrid, vec
     return up + left;
 }
 
-
 //minimum energy to go to the bottom of the triangle
 int min_in_triangle( int n, int i, int j, vector<vector<int>> &triangle, vector<vector<int>> &dp ){
     if(i == n-1) return triangle[n-1][j];
@@ -76,36 +65,67 @@ int min_in_triangle( int n, int i, int j, vector<vector<int>> &triangle, vector<
 
 }
 
+int max_profit(vector<int> &profit){
+    int mini = profit[0];
+    int mprofits = 0;
+    int n = profit.size();
+
+    for (int i = 0; i < n; i++)
+    {
+        int cost = profit[i]-mini;
+        mprofits = max(cost,mprofits);
+        mini = min(mini,profit[i]);
+
+    }
+    return mprofits;
+    
+}
+
+bool Partition_Equal_Subset_Sum(int i,int T,vector<int> &nums){
+    
+    if(T == 0) return 1;
+    if(i == 0) return (nums[i]==T);
+
+    bool npick = Partition_Equal_Subset_Sum(i-1,T,nums);
+    bool pick;
+    if(nums[i]>=T){
+        pick = Partition_Equal_Subset_Sum(i-1,T-nums[i],nums);
+    }
+
+    return pick || npick;
+
+}
+
 int main()
 {
     vector<int> nums;
-    nums.push_back(2);
+
     nums.push_back(1);
-    nums.push_back(2);
-    nums.push_back(9);
-    nums.push_back(4);
-    nums.push_back(2);
+    nums.push_back(5);
+    nums.push_back(11);
+    nums.push_back(5);
 
-    // // vector<int> dp(nums.size(),-1);
-    // // cout<<f(nums.size()-1, nums, dp);
 
-    // // houses connected with last to first
-    // //  vector<int>temp1;
-    // //  vector<int>temp2;
-    // //  vector<int> dp1(nums.size()-1,-1);
-    // //  vector<int> dp2(nums.size()-1,-1);
+    // vector<int> dp(nums.size(),-1);
+    // cout<<f(nums.size()-1, nums, dp);
 
-    // // for (int i = 0; i < nums.size(); i++)
-    // // {
-    // //     if(i != 0) temp1.push_back(nums[i]);
-    // //     if(i != nums.size()-1) temp1.push_back(nums[i]);
-    // // }
-    // // cout<<max(f(temp1.size()-1,temp1,dp1),f(temp2.size()-1,temp2,dp2));
+    // houses connected with last to first
+    //  vector<int>temp1;
+    //  vector<int>temp2;
+    //  vector<int> dp1(nums.size()-1,-1);
+    //  vector<int> dp2(nums.size()-1,-1);
 
-    // int m = 3;
-    // int n = 3;
-    // // vector<vector<int>> dp(m, vector<int>(n, -1));
-    // // cout << uniquepath(m - 1, n - 1, dp);
+    // for (int i = 0; i < nums.size(); i++)
+    // {
+    //     if(i != 0) temp1.push_back(nums[i]);
+    //     if(i != nums.size()-1) temp1.push_back(nums[i]);
+    // }
+    // cout<<max(f(temp1.size()-1,temp1,dp1),f(temp2.size()-1,temp2,dp2));
+
+    //int m = 3;
+    //int n = 3;
+    // vector<vector<int>> dp(m, vector<int>(n, -1));
+    // cout << uniquepath(m - 1, n - 1, dp);
 
     // // obstacleGrid problem
     // int obstacleGrid[3][3] = {
@@ -115,16 +135,36 @@ int main()
 
     // // cout<<uniquepath_with_obstacle(m-1,n-1,obstacleGrid,dp);
 
-    vector<vector<int>> triangle = {
-        {2},
-        {3, 4},
-        {6, 5, 7},
-        {4, 1, 8, 3}};
+    // vector<vector<int>> triangle = {
+    //     {2},
+    //     {3, 4},
+    //     {6, 5, 7},
+    //     {4, 1, 8, 3}};
 
-        int n = triangle.size();
-        vector<vector<int>> dp(n,vector<int>(n,-1));
+    //     int n = triangle.size();
+    //     vector<vector<int>> dp(n,vector<int>(n,-1));
 
-        cout<<min_in_triangle(n,0,0,triangle,dp);
+    //     cout<<min_in_triangle(n,0,0,triangle,dp);
 
+    // vector<int> price = [7,1,5,3,6,4]
+
+    // cout<<max_profit(nums);
+
+
+
+    //subset sum problem
+    //nums = [1,5,11,5]
+
+    // int n = nums.size();
+    // int sum = 0;
+    // for (int i = 0; i < n; i++)
+    // {
+    //     sum+=nums[i];
+    // }
+
+    // cout<<Partition_Equal_Subset_Sum(n-1,sum/2,nums);
+
+
+        
     return 0;
 }
