@@ -5,8 +5,9 @@ primitive data types
 string, number, boolean, null, undefined ,symbol, BigInt
 
 Non-primitive / Reference data type
-
 Array,Object,Fuctions
+
+
 */
 
 
@@ -24,5 +25,8 @@ const Obj = {
     age:23
 }
 
+Obj.school = "school"
+
 console.log(typeof(heros))
 console.log(typeof(Obj))
+console.log(Obj)
