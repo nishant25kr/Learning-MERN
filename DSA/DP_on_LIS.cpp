@@ -32,10 +32,6 @@ int main(){
     nums.push_back(101);
     nums.push_back(18);
 
-
     vector<vector<int >>dp(nums.size(), vector<int>(nums.size()+1,-1));
-    cout<< longest_increasing_subsequence(0,-1,nums,nums.size(),dp);
-
-
-    
+    cout<< longest_increasing_subsequence(0,-1,nums,nums.size(),dp);    
 }
