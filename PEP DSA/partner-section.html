@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhobi G - Partner Section</title>
+    <link rel="stylesheet" href="partner-section.css">
+</head>
+<body>
+    <section class="partner-section animated-bg">
+        <div class="animated-shapes"></div>
+        <div class="partner-container">
+            <div class="partner-text fade-in">
+                <h3>Trusted by top organizations<br>worldwide for evaluations</h3>
+            </div>
+            <div class="partner-logos">
+                <div class="logo-card slide-in"><img src="https://via.placeholder.com/80x40?text=Logo+1" alt="Partner 1"></div>
+                <div class="logo-card slide-in"><img src="https://via.placeholder.com/80x40?text=Logo+2" alt="Partner 2"></div>
+                <div class="logo-card slide-in"><img src="https://via.placeholder.com/80x40?text=Logo+3" alt="Partner 3"></div>
+                <div class="logo-card slide-in"><img src="https://via.placeholder.com/80x40?text=Logo+4" alt="Partner 4"></div>
+                <div class="logo-card slide-in"><img src="https://via.placeholder.com/80x40?text=Logo+5" alt="Partner 5"></div>
+            </div>
+        </div>
+    </section>
+    <script>
+    // Animate on load
+    window.addEventListener('DOMContentLoaded', () => {
+        document.querySelector('.partner-text').classList.add('visible');
+        document.querySelectorAll('.logo-card').forEach((el, i) => {
+            setTimeout(() => el.classList.add('visible'), 200 + i * 150);
+        });
+    });
+    </script>
+</body>
+</html> 
