@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .bg-black{
+            background: #212121;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-black">
+
+    <div >
+        <h1 id="title">DOM in chai aur code</h1>
+        <p>Lorem ipsum dolor sit amet.</p>
+        <ul>
+            <li class="list" >one</li>
+            <li class="list" >two</li>
+            <li class="list" >three</li>
+            <li class="list" >four</li>
+        </ul>
+    </div>
+
+    <script>
+
+        const myul = document.getElementsByClassName('list')
+        console.log(myul)
+        
+        const myArray = Array.from(myul)
+        console.log(myArray)
+
+        myArray.forEach(function(li){
+            li.style.color = ('yellow')
+        })
+
+    </script>
+    
+</body>
+</html>
