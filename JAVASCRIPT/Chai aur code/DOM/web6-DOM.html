@@ -14,14 +14,27 @@
     </div>
 
     <script>
-        parent=document.querySelector('.parent')
-        console.log(parent)
-        console.log(parent.children)
-        console.log(parent.children[1])
+        const parent = document.querySelector('.parent')
+        // console.log(parent)
+        // console.log(parent.children)
+        // console.log(parent.children[1].innerHTML)
         for (let i = 0; i < parent.children.length; i++) {
-            console.log(parent.children[i].innerHTML)
-            
+            const element = parent.children[i].innerHTML;
+            console.log(element);
         }
+
+        const div = document.createElement('div');
+        console.log(div);
+        div.className = "main"
+        div.id = Math.random() * 10 + 1
+        div.style.backgroundColor = 'blue'
+        div.style.padding = '10px'
+        // div.innerHTML = "hello this id new div"
+        const addtext = document.createTextNode("hello this is new div")
+        div.appendChild(addtext)
+
+        document.body.appendChild(div)
+
         
     </script>
 </body>
