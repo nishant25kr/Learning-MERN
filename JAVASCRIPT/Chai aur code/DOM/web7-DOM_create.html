@@ -22,7 +22,7 @@
     <script>
       function addList(lang) {
 
-        
+
 
         const li = document.createElement("li");
         li.className = "list";
@@ -34,6 +34,14 @@
         document.querySelector("#parent").appendChild(li);
       }
     //   addList("React");
+
+    document.querySelector("#parent").addEventListener('click',function (e){
+        console.log(e.target)
+        let r = e.target
+        r.remove();
+    },false)
+
+
     </script>
 
     <style>
@@ -47,3 +55,4 @@
     </style>
   </body>
 </html>
+
