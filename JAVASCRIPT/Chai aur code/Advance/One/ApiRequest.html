@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Old way to get data from API</title>
+</head>
+<body>
+
+    <h1>This is the old way of geeting data from API</h1>
+    
+</body>
+<script>
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET',"https://api.github.com/users/nishant25kr")
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        if(xhr.readyState === 4){
+            const data = JSON.parse(this.responseText)
+            console.log(data.followers)
+        }
+    }
+    xhr.send()
+
+</script>
+</html>
