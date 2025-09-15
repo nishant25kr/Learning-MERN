@@ -1,6 +1,11 @@
 import http from "http"
 import fs from "fs"
 import url from "url"
+import express from "express"
+
+const app = express()
+
+app.get("/",(req,res))
 
 const myServer = http.createServer((req, res) => {
     console.log("new req rec")
@@ -29,4 +34,11 @@ const myServer = http.createServer((req, res) => {
 myServer.listen(3000, () => {
     console.log("Server started at : 3000")
 });
+
+
+
+
+
+
+
 
