@@ -1,18 +1,31 @@
-// Operations
+// let score = "33"
+let score = true
+// let score = "33abc"
+// console.log(typeof score)
 
-let value = 3;
-let negValue = -value;
+let valueInNumber = Number(score)
 
-// console.log(negValue);
+// console.log(typeof valueInNumber)
+// console.log(valueInNumber)
 
-// console.log(1 + 1);
-// console.log(1 + "2");
-// console.log('1' + 1);
-// console.log('1' + 1 + 2);
-// console.log(1 + 2 + "3");
 
-// console.log(1!=1)
-console.log(+true);
-console.log(true);
-console.log(+"");
+/*
+"33"->33
+"33abc"->NaN
+true -> 1; false -> 0
+*/
 
+
+let isLogedIn = 2
+
+let booleanValue = Boolean(isLogedIn)
+// console.log(booleanValue)
+
+//****************** operations *****************
+
+const val = 3
+const negVal = -val
+
+// console.log(negVal)
+
+let
