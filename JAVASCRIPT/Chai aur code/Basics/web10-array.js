@@ -30,9 +30,12 @@ const arr = [1,2,3,4,5]
 
 const newArr = [6,7,8,9,10]
 
-const sumarr = arr.concat(newArr)
+// const sumarr = arr.concat(newArr)
 
-console.log(sumarr)
+// console.log(sumarr)
 
-const allarr = [...arr,...newArr]
-console.log(allarr)
+// const allarr = [...arr,...newArr]
+// console.log(allarr)
+
+
+const findlast = newArr.findlast
