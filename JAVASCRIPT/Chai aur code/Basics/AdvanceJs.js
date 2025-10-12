@@ -85,8 +85,26 @@ student.__proto__ = User
 const obj = {
     name:"Nishant"
 }
-let user = obj;
-user.name = "Kumar"
+let user = obj;  //here user have copy obj by reference
+user.name = "Kumar"  //it will change the original value because it is changing in the memory of obj
 
-console.log(obj)
-console.log(user)
+const obj1 = {
+    name:"Nishant Kumar"
+}
+
+//shalow copy example
+const user1 = Object.assign({},obj1) //it will not give you access of more then 1st level
+const user2 = {...obj}
+user1.name = "kumar nishant"
+
+
+// console.log(obj1)
+// console.log(user1)
+
+/**
+ * OBJECTS
+ * An object is a nonpremitive data type which stres data in the form of key and values.
+ * keys can be a string or a symbol where as values can be any data type line number,function or even object.
+ * we can create obj in three ways {}
+ * 
+ */
