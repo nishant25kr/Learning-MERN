@@ -52,7 +52,7 @@ let User = {
 }
 
 let student = {
-    
+
     name: "Nishant",
     lastname: "Kumar",
     Birth: 2012,
@@ -60,7 +60,7 @@ let student = {
 }
 
 let teacher = {
-    
+
     name: "Hello",
     lastname: "World",
     Birth: 2000,
@@ -83,18 +83,18 @@ student.__proto__ = User
  */
 
 const obj = {
-    name:"Nishant"
+    name: "Nishant"
 }
 let user = obj;  //here user have copy obj by reference
 user.name = "Kumar"  //it will change the original value because it is changing in the memory of obj
 
 const obj1 = {
-    name:"Nishant Kumar"
+    name: "Nishant Kumar"
 }
 
 //shalow copy example
-const user1 = Object.assign({},obj1) //it will not give you access of more then 1st level
-const user2 = {...obj}
+const user1 = Object.assign({}, obj1) //it will not give you access of more then 1st level
+const user2 = { ...obj }
 user1.name = "kumar nishant"
 
 
@@ -108,3 +108,41 @@ user1.name = "kumar nishant"
  * we can create obj in three ways {}
  * 
  */
+
+
+
+/**
+ * Events and bubbling
+ * When an event occurs on an element (like a button), that event bubbles up (propagates)
+ * from the target element to its parent elements — all the way up to the document object — 
+ * unless it’s explicitly stopped.
+ * (child → parent → document).
+ * Can be stopped using e.stopPropagation().
+ */
+
+
+/**
+ * Private Property
+ * → If you want to make any property private inside a class, use the "#" prefix.
+ * → Private fields are only accessible within the same class body.
+ * → Attempting to access them outside the class will cause a SyntaxError.
+ */
+
+class BankAccount {
+    name = "Nishant Kumar";
+    #pin = "232323"; // private property
+
+    getName() {
+        return this.name;
+    }
+
+    getSpecialAccess() {
+        return {
+            pin: this.#pin,  // must use # to access private field
+            name: this.name,
+        };
+    }
+}
+
+const details = new BankAccount();
+console.log(details.getSpecialAccess());
