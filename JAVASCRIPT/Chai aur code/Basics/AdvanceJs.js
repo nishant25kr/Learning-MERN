@@ -145,4 +145,6 @@ class BankAccount {
 }
 
 const details = new BankAccount();
-console.log(details.getSpecialAccess());
+// console.log(details.getSpecialAccess());
+
+
