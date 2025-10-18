@@ -21,6 +21,7 @@ public:
         next = nullptr;
     }
 };
+
 Node *convertarrtoLL(vector<int> &arr)
 {
     Node *head = new Node(arr[0]);
@@ -65,7 +66,6 @@ void print(Node *head)
     }
     cout << endl;
 }
-
 // delete the tail of the LL
 Node *deletetail(Node *head)
 {
@@ -80,7 +80,6 @@ Node *deletetail(Node *head)
     temp->next = nullptr;
     return head;
 }
-
 // deleting the kth element from the LL
 Node *deletekth(Node *head, int k)
 {
@@ -127,19 +126,39 @@ Node *insertattail(Node *head, int val)
     return head;
 }
 
-Node *reverse(Node *head){
-    Node* temp=head;
-    Node* prev = NULL;
-    Node* next = NULL;
-    while (temp!=NULL)
+Node *reverse(Node *head)
+{
+    Node *temp = head;
+    Node *prev = NULL;
+    Node *next = NULL;
+    while (temp != NULL)
     {
         next = temp->next;
-        temp -> next = prev;
-        prev=temp;
-        temp=next;
+        temp->next = prev;
+        prev = temp;
+        temp = next;
     }
     return prev;
-    
+}
+
+Node *AddAlternateNode(Node *head)
+{
+    if (head == NULL || head->next == NULL || head->next->next == NULL)
+        return head;
+
+    Node *prev = head;
+    Node *curr = head->next->next;
+
+    while (curr != NULL)
+    {
+        curr->data += prev->data;
+        prev = prev->next->next;
+        if (curr->next == NULL || curr->next->next == NULL)
+            break;
+        curr = curr->next->next;
+    }
+
+    return head;
 }
 
 int main()
@@ -170,8 +189,11 @@ int main()
     // head=deletetail(head);
 
     // head=deletekth(head,2);
-    head=reverse(head);
+    // head = reverse(head);
 
     // head = insertattail(head, 100);
+
+    print(head);
+    head = AddAlternateNode(head);
     print(head);
 }

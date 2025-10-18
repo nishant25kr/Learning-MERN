@@ -108,35 +108,66 @@ void longest_Word(string str)
     cout << "Longest word: " << longest << endl;
 }
 
-
-void min_num_of_Int(int arr[],int n, int x, int y)
+void min_num_of_Int(int arr[], int n, int x, int y)
 {
     int i = 0;
-    int j = n-1;
+    int j = n - 1;
     int integers = 0;
     int prev = 0;
-    while (j>i)
+    while (j > i)
     {
         /* code */
-        if((i==3 or i==6) and (j == 3 or j == 6)){
-            integers = j-i;
-            if(integers < prev){
+        if ((i == 3 or i == 6) and (j == 3 or j == 6))
+        {
+            integers = j - i;
+            if (integers < prev)
+            {
                 prev = integers;
             }
         }
-        if(i==3 or i==6){
+        if (i == 3 or i == 6)
+        {
             j--;
         }
-        if(j == 3 or j == 6){
+        if (j == 3 or j == 6)
+        {
             i++;
         }
         i++;
         j--;
     }
 
-    cout<<prev;
-
+    cout << prev;
 }
+
+void most_freq_vovel(string s)
+{
+
+    int n = s.length();
+    unordered_map<char, int>count;
+
+    for (int i = 0; i < n; i++)
+    {
+        if(s[i] == 'A' or 'E' or 'I' or 'O' or 'U'){
+            count[s[i]]++;
+        }
+
+    }
+
+    int maxFreq = 0;
+    char maxChar;   
+    
+    for(auto &c : count){
+        if(c.second > maxFreq){
+            maxFreq = c.second;
+            maxChar = c.first;
+
+        }
+    }
+
+    cout<<maxChar;
+}
+
 int main()
 {
     string s1, s2;
@@ -144,25 +175,24 @@ int main()
     s2 = "AABCCAD";
     // cout << "Minimum Cost: " << minTransformCost(s1, s2) << endl;
 
-    
     int i = 4;
     // trialgle(i);
-
 
     // int arr[] = {52, 66, 64, 36, 45, 24, 32};
     // int n = sizeof(arr) / sizeof(arr[0]);
     // SumOfLeaders(arr, n);
 
-    
     string str = "yes no number";
     // longest_Word(str);
 
-
     int x = 3;
     int y = 6;
-    int arr[] = {10,3,2,4,5,6,9,7,3};
+    int arr[] = {10, 3, 2, 4, 5, 6, 9, 7, 3};
     int n = sizeof(arr) / sizeof(arr[0]);
-    min_num_of_Int(arr,n,x,y);
+    // min_num_of_Int(arr,n,x,y);
+
+    string s = "xyuuuaab" ;
+    most_freq_vovel(s);
 
     return 0;
 }

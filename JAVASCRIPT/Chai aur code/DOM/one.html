@@ -13,7 +13,7 @@
 <body class="bg-black">
 
     <div >
-        <h1 id="title">DOM in chai aur code</h1>
+        <h1 id="title">DOM in chai aur code <span style="display: none;">text text</span></h1>
         <p>Lorem ipsum dolor sit amet.</p>
         <ul>
             <li class="list" >one</li>
@@ -25,15 +25,28 @@
 
     <script>
 
-        const myul = document.getElementsByClassName('list')
-        console.log(myul)
+        // const myul = document.getElementsByClassName('list')
+        // let myh1 = document.getElementById('title')
+        // console.log(myh1)
         
-        const myArray = Array.from(myul)
-        console.log(myArray)
+        // const myArray = Array.from(myul)
+        // console.log(myArray)
 
-        myArray.forEach(function(li){
-            li.style.color = ('yellow')
-        })
+        // myArray.forEach(function(li){
+        //     li.style.color = ('yellow')
+        // })
+
+        const title = document.getElementById('title').innerText = "this is the way you do it"
+        const content1 =title.textContent
+        const content2 =title.innerText
+        const content3 =title.innerHTML
+        console.log(title)
+        console.log(content1)
+        console.log(content2)
+        console.log(content3)
+
+
+
 
     </script>
     
