@@ -141,9 +141,56 @@ void UnionOfArrya(vector<int> &a, vector<int> &b)
     }
 }
 
+int longestSubarray(vector<int>& nums, int k) {
+    int i = 0, j = 0;
+    long long sum = 0;
+    int length = 0;
+
+    while (j < nums.size()) {
+        sum += nums[j];
+
+        // Shrink from left if sum > k
+        while (i <= j && sum > k) {
+            sum -= nums[i];
+            i++;
+        }
+
+        // Check if sum == k
+        if (sum == k) {
+            length = max(length, j - i + 1);
+        }
+
+        j++;
+    }
+
+    return length;
+}
+
+void subarray_with_maximum_sum(vector<int > &nums){
+    int sum = 0;
+    int max = 0;
+    vector<int > ans;
+
+    for(auto i : nums){
+        sum += i;
+        if(sum > max){
+            ans.push_back(i);
+            max = sum;
+        }
+        else if(sum < 0){
+            sum = 0;
+            ans.clear();
+        }
+
+    }
+    for(auto i : ans){
+        cout<<i<<" ";
+    }
+
+}
+
 int main()
 {
-    
     // vector<int> arr = {4, 2, 2, 6, 5};
     // vector<int> arr = {1, 2, 2, 3, 4, 5, 6};
     // cout << largest_Element(arr, sizeof(arr));
@@ -154,7 +201,11 @@ int main()
     vector<int> a = {1, 2, 3, 2, 1};
     vector<int> b = {3, 2, 2, 3, 3, 2};
     // UnionOfArrya(a, b);
+    // vector<int> nums = {-3, 2, 1};
+    int k = 15;
+    // cout << longestSubarray(nums, k);
+    vector<int > nums = {-2,1,-3,4,-1,2,1,-5,4};
+    subarray_with_maximum_sum(nums);
 
     return 0;
-
 }
