@@ -189,6 +189,30 @@ void subarray_with_maximum_sum(vector<int > &nums){
 
 }
 
+int NcR(int n,int r){
+    int res = 1;
+    for (int i = 0; i < r; i++)
+    {
+        res *= (n-i);
+        res /= (i+1);
+    }
+    return res;
+    
+}
+
+void print_all_element_fo_row(int n){
+    for(int i=0;i<n;i++){
+        cout<<NcR(n-1,i)<<" ";
+    }
+    cout<<endl;
+}
+
+void print_pacal_triangle(int n ){
+    for(int i=0;i<n;i++){
+        print_all_element_fo_row(i);
+    }
+}
+
 int main()
 {
     // vector<int> arr = {4, 2, 2, 6, 5};
@@ -205,7 +229,11 @@ int main()
     int k = 15;
     // cout << longestSubarray(nums, k);
     vector<int > nums = {-2,1,-3,4,-1,2,1,-5,4};
-    subarray_with_maximum_sum(nums);
+    // subarray_with_maximum_sum(nums);
+    // cout<<NcR(4,1);
+    // print_all_element_fo_row(6);
+
+    print_pacal_triangle(6);
 
     return 0;
 }
