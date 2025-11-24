@@ -141,22 +141,26 @@ void UnionOfArrya(vector<int> &a, vector<int> &b)
     }
 }
 
-int longestSubarray(vector<int>& nums, int k) {
+int longestSubarray(vector<int> &nums, int k)
+{
     int i = 0, j = 0;
     long long sum = 0;
     int length = 0;
 
-    while (j < nums.size()) {
+    while (j < nums.size())
+    {
         sum += nums[j];
 
         // Shrink from left if sum > k
-        while (i <= j && sum > k) {
+        while (i <= j && sum > k)
+        {
             sum -= nums[i];
             i++;
         }
 
         // Check if sum == k
-        if (sum == k) {
+        if (sum == k)
+        {
             length = max(length, j - i + 1);
         }
 
@@ -166,52 +170,128 @@ int longestSubarray(vector<int>& nums, int k) {
     return length;
 }
 
-void subarray_with_maximum_sum(vector<int > &nums){
+void subarray_with_maximum_sum(vector<int> &nums)
+{
     int sum = 0;
     int max = 0;
-    vector<int > ans;
+    vector<int> ans;
 
-    for(auto i : nums){
+    for (auto i : nums)
+    {
         sum += i;
-        if(sum > max){
+        if (sum > max)
+        {
             ans.push_back(i);
             max = sum;
         }
-        else if(sum < 0){
+        else if (sum < 0)
+        {
             sum = 0;
             ans.clear();
         }
-
     }
-    for(auto i : ans){
-        cout<<i<<" ";
+    for (auto i : ans)
+    {
+        cout << i << " ";
     }
-
 }
 
-int NcR(int n,int r){
+int NcR(int n, int r)
+{
     int res = 1;
     for (int i = 0; i < r; i++)
     {
-        res *= (n-i);
-        res /= (i+1);
+        res *= (n - i);
+        res /= (i + 1);
     }
     return res;
-    
 }
 
-void print_all_element_fo_row(int n){
-    for(int i=0;i<n;i++){
-        cout<<NcR(n-1,i)<<" ";
+void print_all_element_fo_row(int n)
+{
+    for (int i = 0; i < n; i++)
+    {
+        cout << NcR(n - 1, i) << " ";
     }
-    cout<<endl;
+    cout << endl;
 }
 
-void print_pacal_triangle(int n ){
-    for(int i=0;i<n;i++){
+void print_pacal_triangle(int n)
+{
+    for (int i = 0; i < n; i++)
+    {
         print_all_element_fo_row(i);
     }
 }
+
+void three_Sum(vector<int> &nums)
+{
+    int n = nums.size();
+    sort(nums.begin(), nums.end());
+    for (int i = 0; i < n; i++)
+    {
+        if (i > 0 && nums[i] == nums[i - 1]) continue; 
+
+        int j = i + 1;
+        int k = n - 1;
+
+        while (j < k)
+        {
+            int sum = nums[i] + nums[j] + nums[k];
+
+            if (sum > 0)
+            {
+                k--;
+            }
+            else if (sum < 0)
+            {
+                j++;
+            }
+            else
+            {
+                cout << nums[i] << nums[j] << nums[k];
+                cout<<endl;
+                j++;
+                k--;
+            }
+        }
+    }
+}
+
+void four_sum(vector<int> &nums){
+    int n = nums.size();
+    sort(nums.begin(), nums.end());
+    for (int i = 0; i < n; i++)
+    {
+        if (i > 0 && nums[i] == nums[i - 1]) continue; 
+        for (int j = i+1; j < n; j++)
+        {
+            if (j > 0 && nums[j] == nums[j - 1]) continue; 
+            int k = j+1;
+            int l = n-1;
+            while (k < l)
+            {
+                int sum = nums[i]+nums[j]+nums[k]+nums[l];
+                if(sum < 0){
+                    k++;
+                }else if(sum > 0){
+                    l++;
+                }else{
+                    cout<< nums[i]<< nums[j]<< nums[k]<< nums[l]<< endl;
+                    k++;
+                    l--;
+                }
+
+            }
+            
+
+        }
+        
+    }
+    
+}
+
+
 
 int main()
 {
@@ -228,12 +308,15 @@ int main()
     // vector<int> nums = {-3, 2, 1};
     int k = 15;
     // cout << longestSubarray(nums, k);
-    vector<int > nums = {-2,1,-3,4,-1,2,1,-5,4};
+    // vector<int> nums = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
     // subarray_with_maximum_sum(nums);
     // cout<<NcR(4,1);
     // print_all_element_fo_row(6);
+    // print_pacal_triangle(6);
 
-    print_pacal_triangle(6);
+    vector<int> nums = {1,0,-1,0,-2,2};
+    // three_Sum(nums);
+    four_sum(nums);
 
     return 0;
 }
