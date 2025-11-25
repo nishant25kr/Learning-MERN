@@ -97,6 +97,7 @@ int Remove_Duplicate(vector<int> &arr, int n)
         cout << "Key = " << it.first
              << ", Value = " << it.second << endl;
     }
+    return 0;
 }
 
 void UnionOfArrya(vector<int> &a, vector<int> &b)
@@ -291,6 +292,22 @@ void four_sum(vector<int> &nums){
     
 }
 
+void merge(vector<vector<int>> &nums){
+    
+    int n = nums.size();
+    vector<vector<int >> res;
+    vector<int > ans;
+    for (int i = 0; i < n-1; i++)
+    {
+        if (nums[i][0] <= nums[i+1][0] && nums[i+1][0] <= nums[i][1]){
+            ans.push_back({nums[i][0], nums[i+1][1]});
+        }
+    }
+
+    for
+    
+
+}
 
 
 int main()
@@ -314,9 +331,13 @@ int main()
     // print_all_element_fo_row(6);
     // print_pacal_triangle(6);
 
-    vector<int> nums = {1,0,-1,0,-2,2};
+    // vector<int> nums = {1,0,-1,0,-2,2};
     // three_Sum(nums);
-    four_sum(nums);
+    // four_sum(nums);
 
+    vector<vector<int>> nums = {{1,3}, {2,6}, {8,10}, {15,18}};
+    merge(nums);
+    
+    
     return 0;
 }
