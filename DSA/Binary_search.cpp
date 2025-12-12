@@ -143,5 +143,7 @@ int main()
     };
     int target = 11;
 
-    cout << (find_element(matrix, target) ? "Available" : "Not available");
+    // cout << (find_element(matrix, target) ? "Available" : "Not available");
+    string s = "123";
+    cout<< s[2]%2;
 }
