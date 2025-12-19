@@ -98,11 +98,10 @@ void printF(int i, vector<int> &ds, int arr[], int n)
 {
     if (i == n)
     {
-        for (int j = 0; j < ds.size(); j++)
-        {
-            cout << ds[j] << " ";
+        for(int i : ds){
+            cout<< i <<" ";
         }
-        cout << endl;
+        cout<<endl;
         return;
     }
 
@@ -146,8 +145,9 @@ bool printF_sum_K(int i, vector<int> &ds, int s, int sum, int arr[], int n)
         return false;
 }
 
-// print the combination of the sum
 
+
+// print the combination of the sum
 void find_sum(int i, vector<int> &arr, int target, vector<int> ds, vector<vector<int>> &ans)
 {
 
@@ -184,55 +184,65 @@ void combination_sum(vector<int> &arr, int target)
         cout << "]" << endl;
     }
 }
+
+int fibo(int n){
+    if(n<=1) return n;
+    int last = fibo(n-1);
+    int slast = fibo(n-2);
+    return last + slast;
+}
+
+
+
 int main()
 {
     // f();
     // printname();
-    // cout<<endl;
+    // // cout<<endl;
     // p(1,5);
-    // cout<<endl
+    // // cout<<endl
 
     // backtracking(1,4);
-    // cout<<endl;
+    // // cout<<endl;
     // int s=0;
     // sum(3,s);
-    // cout<<endl;
-    // cout<<sum_recursion(5);
-    // cout<<endl;
-    // cout<<fact_recursion(5);
-    // cout<<endl;
-    // vector<int > arr;
-    // arr[0] = 1;
-    // arr[1] = 2;
-    // arr[2] = 3;
-    // reverse_array(arr, 0, arr.size()-1);
-    // cout<<endl;
+    // // cout<<endl;
+    // // cout<<sum_recursion(5);
+    // // cout<<endl;
+    // // cout<<fact_recursion(5);
+    // // cout<<endl;
+    // // vector<int > arr;
+    // // arr[0] = 1;
+    // // arr[1] = 2;
+    // // arr[2] = 3;
+    // // reverse_array(arr, 0, arr.size()-1);
+    // // cout<<endl;
 
-    // string st = "MADaM";
-    // cout<<palendrom(0,st);
+    // // string st = "MADaM";
+    // // cout<<palendrom(0,st);
 
-    // int arr[] = {3,2,1};
-    // int n=3;
-    // vector<int > ds;
-    // printF(0, ds, arr, n);
+    int arr[] = {3,2,1};
+    int n=3;
+    vector<int > ds;
+    printF(0, ds, arr, n);
 
-    // printF_sum_K(0, ds, 0, 3, arr, n);
+    // // printF_sum_K(0, ds, 0, 3, arr, n);
 
-    vector<int> arr;
-    arr.push_back(1);
-    arr.push_back(2);
-    arr.push_back(3);
-    arr.push_back(4);
-    arr.push_back(5);
-    arr.push_back(6);
-    int target = 6;
-    // combination_sum(arr, target);
-    int i=0;
-    while (i<10)
-    {
-        cout<<i;
-        i+=2;
-    }
+    // vector<int> arr;
+    // arr.push_back(1);
+    // arr.push_back(2);
+    // arr.push_back(3);
+    // arr.push_back(4);
+    // arr.push_back(5);
+    // arr.push_back(6);
+    // int target = 6;
+    // // combination_sum(arr, target);
+    // int i=0;
+    // while (i<10)
+    // {
+    //     cout<<i;
+    //     i+=2;
+    // }
     
     return 0;
 }
