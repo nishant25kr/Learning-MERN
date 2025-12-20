@@ -118,11 +118,6 @@ bool printF_sum_K(int i, vector<int> &ds, int s, int sum, int arr[], int n)
     {
         if (s == sum)
         {
-            for (int j = 0; j < ds.size(); j++)
-            {
-                cout << ds[j] << " ";
-            }
-            cout << endl;
             return true;
         }
         else
@@ -145,7 +140,21 @@ bool printF_sum_K(int i, vector<int> &ds, int s, int sum, int arr[], int n)
         return false;
 }
 
-
+void subsequences_with_sum_K(int i, int sum,vector<int > &ds ,vector<int>nums){
+    if(i == nums.size()){
+        if(sum == 0){
+            for(auto i : ds){
+                cout<<i<<" ";
+            }
+            cout<<endl;
+        }
+        return;
+    }
+    ds.push_back(nums[i]);
+    subsequences_with_sum_K(i+1, sum-nums[i], ds, nums);
+    ds.pop_back();
+    subsequences_with_sum_K(i+1, sum, ds, nums);
+}
 
 // print the combination of the sum
 void find_sum(int i, vector<int> &arr, int target, vector<int> ds, vector<vector<int>> &ans)
@@ -192,57 +201,35 @@ int fibo(int n){
     return last + slast;
 }
 
+void combinations_sum(int i, int target, vector<int > &ds, vector<int > &nums){
+    
+    if(target == 0){
+        for(int i : ds) cout<< i <<" ";
+        cout<<endl;
+        return;
+    }
 
+    if (i == nums.size() || target < 0) return;
+
+    if(nums[i] <= target){
+        ds.push_back(nums[i]);
+        combinations_sum(i+1, target-nums[i], ds, nums);
+        ds.pop_back();
+    }
+
+    combinations_sum(i+1, target, ds, nums);
+
+}
 
 int main()
 {
-    // f();
-    // printname();
-    // // cout<<endl;
-    // p(1,5);
-    // // cout<<endl
-
-    // backtracking(1,4);
-    // // cout<<endl;
-    // int s=0;
-    // sum(3,s);
-    // // cout<<endl;
-    // // cout<<sum_recursion(5);
-    // // cout<<endl;
-    // // cout<<fact_recursion(5);
-    // // cout<<endl;
-    // // vector<int > arr;
-    // // arr[0] = 1;
-    // // arr[1] = 2;
-    // // arr[2] = 3;
-    // // reverse_array(arr, 0, arr.size()-1);
-    // // cout<<endl;
-
-    // // string st = "MADaM";
-    // // cout<<palendrom(0,st);
-
     int arr[] = {3,2,1};
     int n=3;
     vector<int > ds;
-    printF(0, ds, arr, n);
+    // printF(0, ds, arr, n);
+    // printF_sum_K(0, ds, 0, 3, arr, n);
+    vector<int> nums = {1,2,3,4,5};
+    combinations_sum(0,5,ds,nums);
 
-    // // printF_sum_K(0, ds, 0, 3, arr, n);
-
-    // vector<int> arr;
-    // arr.push_back(1);
-    // arr.push_back(2);
-    // arr.push_back(3);
-    // arr.push_back(4);
-    // arr.push_back(5);
-    // arr.push_back(6);
-    // int target = 6;
-    // // combination_sum(arr, target);
-    // int i=0;
-    // while (i<10)
-    // {
-    //     cout<<i;
-    //     i+=2;
-    // }
-    
     return 0;
 }
