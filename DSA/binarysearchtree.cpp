@@ -103,8 +103,6 @@ Node *Helper(Node *root)
 // }
 
 
-
-
 void inorderts(Node *root, vector<int> &res)
 {
     if (root != nullptr)
@@ -114,8 +112,6 @@ void inorderts(Node *root, vector<int> &res)
         inorderts(root->right, res); 
     }
 }
-
-
 
 bool two_sum(Node *root, int k)
 {
@@ -137,7 +133,6 @@ bool two_sum(Node *root, int k)
 }
 
 //check bst
-
 bool check(Node* root,long minVal, long maxVal){
     if(root == NULL) return 1;
 
@@ -153,6 +148,24 @@ bool check_bst(Node* root){
 
 }
 
+int floorofBST(Node* root, int val){
+    int floor = -1;
+    while(root){
+        if(root->data == val) floor =  root->data;
+
+        if(val > root->data){
+            floor = root->data;
+            root= root->right;
+        }
+
+        else{
+            root = root->left;
+        }
+
+    }
+
+    return floor;
+}
 
 int main()
 {
@@ -183,7 +196,9 @@ int main()
 
     // cout<<two_sum(root, 4);
 
-    cout<<check_bst(root);
+    cout<<floorofBST(root,5);
+
+    // cout<<check_bst(root);
     
 
     return 0;
