@@ -1,0 +1,32 @@
+function outer() {
+    let x = 10;
+    console.log("outer exe")
+    function inner() {
+        console.log("inner", x)
+    }
+    return inner
+}
+
+function cache(func) {
+    const memo = {}
+    // console.log("inside cache,", func)
+    return function (...args) {
+        const key = JSON.stringify(args)
+        if (memo[key]){
+            console.log('already there')
+            return memo[key]
+        }
+        memo[key] = func(...args)
+        return memo[key]
+    };
+}
+
+// const fn = outer()
+// fn()
+
+const expensiveCalc = cache((n) => n * n);
+console.log(expensiveCalc(5))
+console.log(expensiveCalc(5))
+console.log(expensiveCalc(5))
+console.log(expensiveCalc(5))
+console.log(expensiveCalc(5))

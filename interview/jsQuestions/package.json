@@ -1,0 +1,17 @@
+{
+  "name": "jsquestions",
+  "version": "1.0.0",
+  "main": "Sequential_Parallel_Execution.js",
+  "scripts": {
+    "dev": "node cluster.js"
+  },
+
+  "type":"module",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
