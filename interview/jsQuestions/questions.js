@@ -85,3 +85,4 @@ const obj = [
 
 const newobj = obj.filter(e => e.gender == 'female')
 console.log(newobj)
+

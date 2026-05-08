@@ -25,8 +25,55 @@ function cache(func) {
 // fn()
 
 const expensiveCalc = cache((n) => n * n);
-console.log(expensiveCalc(5))
-console.log(expensiveCalc(5))
-console.log(expensiveCalc(5))
-console.log(expensiveCalc(5))
-console.log(expensiveCalc(5))
+// console.log(expensiveCalc(5))
+// console.log(expensiveCalc(5))
+// console.log(expensiveCalc(5))
+// console.log(expensiveCalc(5))
+// console.log(expensiveCalc(5))
+
+//another example
+// function inner(){
+//     let count = 0;
+//     return function inner(){
+//         count++;
+//         console.log("from inner:",count)
+//     }
+// }
+
+// const callfunction = inner()
+
+// callfunction()
+// callfunction()
+// callfunction()
+// callfunction()
+// callfunction()
+// callfunction()
+
+/**
+* another example
+ */
+
+function cart(){
+    let count = 0;
+
+    return{
+        increment(){
+            count++;
+        },
+        decrement(){
+            count--;
+        },
+        cartvalue(){
+            console.log(count)
+        }
+    }
+
+}
+
+const yourcart = cart()
+
+yourcart.increment()
+yourcart.increment()
+yourcart.cartvalue()
+yourcart.decrement()
+yourcart.cartvalue()

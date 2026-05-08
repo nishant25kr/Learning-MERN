@@ -4,5 +4,17 @@ const obj = {
     arrowgreet: ()=>console.log("hello",this.name )
 }
 
-obj.greet()
-obj.arrowgreet()
+// obj.greet()
+// obj.arrowgreet()
+
+//another situation
+
+const object = {
+    "message" :  "Hello world",
+    getMessage(){
+        const message = "Hello Earth"
+        console.log(this.message)
+    }
+}
+
+object.getMessage()
