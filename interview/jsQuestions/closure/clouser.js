@@ -77,3 +77,21 @@ yourcart.increment()
 yourcart.cartvalue()
 yourcart.decrement()
 yourcart.cartvalue()
+
+
+
+
+
+
+
+////    
+
+// for (let i = 0; i < 3; i++) {
+//     function hello(x){
+//         console.log(x); 
+//     }
+    
+//     setTimeout(function log() {
+//         hello(i)
+//     }, 1000);
+// }

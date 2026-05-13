@@ -9,12 +9,18 @@ const obj = {
 
 //another situation
 
-const object = {
-    "message" :  "Hello world",
-    getMessage(){
-        const message = "Hello Earth"
-        console.log(this.message)
+
+const numbers = {
+    num1: 2,
+    num2: 3,
+    sum: function() {
+        console.log("this inside numbers",this)
+        
+        const calculate = () =>{
+            console.log('this inside calculate',this)
+        }
+
+        calculate()
     }
 }
-
-object.getMessage()
+// numbers.sum()
